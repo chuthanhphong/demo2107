@@ -15,6 +15,7 @@
         <tr>
             <th>Name</th>
             <th>Price</th>
+            <th>Province</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -22,6 +23,7 @@
             <tr>
                 <td th:text="${product.name}"></td>
                 <td th:text="${product.price}"></td>
+                <td th:text="${product.province.name}"></td>
                 <td><a th:href="@{/products/edit/__${product.id}__ }">Edit</a></td>
                 <td><a th:href="@{/products/delete/__${product.id}__ }">Delete</a></td>
             </tr>

@@ -2,10 +2,7 @@ package com.codegym.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Product {
@@ -16,14 +13,13 @@ public class Product {
     private String name;
 
     private int price;
+    @ManyToOne
+    @JoinColumn(name = "id_provice")
+    private Province province;
 
     public Product() {
     }
 
-    public Product(String name, int price) {
-        this.name = name;
-        this.price = price;
-    }
 
     public Long getId() {
         return id;
@@ -47,5 +43,13 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public Province getProvince() {
+        return province;
+    }
+
+    public void setProvince(Province province) {
+        this.province = province;
     }
 }

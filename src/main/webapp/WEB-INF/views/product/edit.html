@@ -6,7 +6,7 @@
 </head>
 <body>
 <p>
-    <a href="/products/list">Back to customers list</a>
+    <a href="/products/list">Back to ProductList</a>
 </p>
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
@@ -21,6 +21,17 @@
         <tr>
             <td>Product Price:</td>
             <td><input type="text" th:field="*{price}"/></td>
+        </tr>
+        <tr>
+            <td>Province:</td>
+            <td>
+                <select name="province">
+                    <option th:each="p : ${provinces}"
+                            th:value="${p.id}"
+                            th:text="${p.name}"
+                            th:selected="(${p.id} == *{province.id})"></option>
+                </select>
+            </td>
         </tr>
         <tr>
             <td></td>
